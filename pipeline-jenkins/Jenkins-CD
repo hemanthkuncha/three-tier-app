@@ -87,7 +87,7 @@ pipeline {
         always {
             script {
                 emailext attachLog: true,
-                from: 'hemanthkuncha143@gmail.com',
+                from: 'hemanthkuncha06@gmail.com',
                 subject: "TWS Application has been updated and deployed - '${currentBuild.result}'",
                 body: """
                     <html>
@@ -104,7 +104,7 @@ pipeline {
                     </body>
                     </html>
             """,
-            to: 'hemanthkuncha143@gmail.com',
+            to: 'hemanthkuncha06@gmail.com',
             mimeType: 'text/html'
             }
         }
