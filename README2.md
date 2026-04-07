@@ -11,8 +11,11 @@ when the deploying hardware ip changes then i have to rebuild the image to acces
 
 and we can added a manual DNS entry in local
 
-now we can access frontend - ''' http://10.0.0.40:30101 
-                             http://10.0.0.40:30102/api/tasks '''
+now we can access frontend -
+''' 
+http://10.0.0.40:30101 
+http://10.0.0.40:30102/api/tasks
+'''
 ***
 edit /etc/hosts -- >> 10.0.0.40 myapp.local (in the vm that browser able to route to that ip) -->> http://myapp.local:30102/api/tasks
 
