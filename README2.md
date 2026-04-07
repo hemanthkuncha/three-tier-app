@@ -18,6 +18,7 @@ http://10.0.0.40:30102/api/tasks
 ```
 ***
 and we can added a manual DNS entry in local
+
 edit /etc/hosts -- >> 10.0.0.40 myapp.local (in the vm that browser able to route to that ip)
 
 now we can access :
