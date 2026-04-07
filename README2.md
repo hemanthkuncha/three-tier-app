@@ -1,3 +1,5 @@
+##k8s
+
 faced issue while frontend accessing the API from my browser (which is in diffrenet network)
 
 resolved it by exposing the api deployment and used the exposed port
