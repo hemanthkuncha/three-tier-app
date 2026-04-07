@@ -6,7 +6,6 @@ resolved it by exposing the api deployment and used the exposed port
 
 k8sfrontend.yaml -- >> `(http://<NODE_IP>:PORT/api/tasks)`
 
----
 untill now used the hard coded ip values in (env) in frontend.yaml
 
 when the deploying hardware ip changes then i have to rebuild the image to access the backend through browser due to the ENV is directly adding while build process
