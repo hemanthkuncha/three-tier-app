@@ -10,8 +10,6 @@ untill now used the hard coded ip values in (env) in frontend.yaml
 
 when the deploying hardware ip changes then i have to rebuild the image to access the backend through browser due to the ENV is directly adding while build process
 
-and we can added a manual DNS entry in local
-
 now we can access :
 
 ``` url
@@ -19,6 +17,7 @@ http://10.0.0.40:30101
 http://10.0.0.40:30102/api/tasks
 ```
 ***
+and we can added a manual DNS entry in local
 edit /etc/hosts -- >> 10.0.0.40 myapp.local (in the vm that browser able to route to that ip)
 
 now we can access :
