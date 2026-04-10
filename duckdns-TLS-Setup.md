@@ -1,9 +1,13 @@
 ### 1.The Essential Stack (The "Needs")
 
 DNS	- Internal service discovery
+
 MetalLB	- Provides the External IP for your Ingress
+
 Ingress	- The Gateway (NGINX)
+
 Cert-Manager - Automation for SSL certificates
+
 Helm3	- Used to install the DuckDNS Webhook
 
 ### 2.Serial Execution Steps (The "Order")
