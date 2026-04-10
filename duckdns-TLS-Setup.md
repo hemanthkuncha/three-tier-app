@@ -1,3 +1,44 @@
+### 1.The Essential Stack (The "Needs")
+
+DNS	- Internal service discovery
+MetalLB	- Provides the External IP for your Ingress
+Ingress	- The Gateway (NGINX)
+Cert-Manager - Automation for SSL certificates
+Helm3	- Used to install the DuckDNS Webhook
+
+### 2.Serial Execution Steps (The "Order")
+
+2.1: Webhook Installation -- Cert-manager cannot talk to DuckDNS without the Webhook.
+
+Add Helm Repository
+```bash
+microk8s helm3 repo add csp33 https://csp33.github.io/cert-manager-duckdns-webhook
+microk8s helm3 repo update
+```
+Install Webhook (Ensure groupName matches your domain)
+
+```bash
+microk8s helm3 install cert-manager-duckdns-webhook csp33/cert-manager-duckdns-webhook \
+  --namespace cert-manager \
+  --set groupName=acme.mysite06.duckdns.org
+```
+2.2: Infrastructure Credentials -- Apply your DuckDNS token secret specifically in the `cert-manager` namespace.
+
+```bash
+microk8s kubectl create secret generic duckdns-token-secret \
+  -n cert-manager \
+  --from-literal=token=YOUR_TOKEN_HERE
+```
+2.3: The "Issuer" (The Authority) -- Apply your `letsencrypt-issuer.yaml`. This establishes the connection to Let's Encrypt.
+
+Check Status: `kubectl describe clusterissuer letsencrypt-prod`
+
+Look for: `Ready: True / ACME account registered ` (Wait for 2 mins-120 sec)
+
+2.4: Application Deployment -- Apply your Three-Tier App (MongoDB, API, Frontend Services).
+
+2.5: The "Trigger" (Ingress + Certificate) -- Apply your three-tier-ingress.yaml. Crucial: The Ingress is what triggers cert-manager to start the SSL challenge
+
 ## 🔐 SSL Management Strategy
 
 ### ❌ Manual Method (Legacy/Testing)
