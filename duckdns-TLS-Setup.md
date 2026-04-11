@@ -14,11 +14,6 @@ Helm3	- Used to install the DuckDNS Webhook
 ```bash
 kubectl create ns three-tier
 ```
-Apply - Backup 'secret/certificate' applying instantly (Skip the duck dnswebhook and aplplying dns tocken and triggering certificat.yaml)
-```bash
-kubectl apply -f myapp-tls-prod-backup.yaml
-```
-
 ### 2.Serial Execution Steps (The "Order")
 
 2.1: Webhook Installation -- Cert-manager cannot talk to DuckDNS without the Webhook.
